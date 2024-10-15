@@ -13,7 +13,10 @@ function App() {
 
   return (
     <>
-      <ExpenseList expenses={expense} />
+      <ExpenseList
+        expenses={expense}
+        onDelete={(id) => setExpense(expense.filter((e) => e.id !== id))}
+      />
     </>
   );
 }
