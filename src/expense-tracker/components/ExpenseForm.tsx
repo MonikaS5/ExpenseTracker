@@ -5,9 +5,16 @@ import categories from "../categories";
 
 const Schema = z.object({
   description: z
-    .string()
+    .string({
+      required_error: "Description is required",
+      invalid_type_error: "Name must be a string",
+    })
+    .min(1, { message: "Description is required" })
     .min(3, { message: "Description should be at least 3 characters" })
-    .max(50),
+    .max(50)
+    .refine((value) => isNaN(Number(value)), {
+      message: "Description must not be a number",
+    }),
   amount: z
     .number({ invalid_type_error: "Amount is required" })
     .min(0.01)
