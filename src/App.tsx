@@ -20,7 +20,10 @@ function App() {
 
   return (
     <>
-      <div className="row border border-info p-5">
+      <div className="mb-5">
+        <h1 className="text-center">Expense Tracker</h1>
+      </div>
+      <div className="row border border-info rounded p-5">
         <div className="col-md-6">
           <div className="mb-5">
             <ExpenseForm
