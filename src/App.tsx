@@ -20,23 +20,32 @@ function App() {
 
   return (
     <>
-      <div className="mb-5">
-        <ExpenseForm
-          onSubmit={(newExpense) =>
-            setExpense([...expense, { ...newExpense, id: expense.length + 1 }])
-          }
-        />
-      </div>
-      <div className="mb-3">
-        <ExpenseFilter
-          onSelectedCategory={(category) => setSelectedCategory(category)}
-        />
-      </div>
-      <div className="mt-3">
-        <ExpenseList
-          expenses={visibleExpenses}
-          onDelete={(id) => setExpense(expense.filter((e) => e.id !== id))}
-        />
+      <div className="row border border-info p-5">
+        <div className="col-md-6">
+          <div className="mb-5">
+            <ExpenseForm
+              onSubmit={(newExpense) =>
+                setExpense([
+                  ...expense,
+                  { ...newExpense, id: expense.length + 1 },
+                ])
+              }
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="mb-3">
+            <ExpenseFilter
+              onSelectedCategory={(category) => setSelectedCategory(category)}
+            />
+          </div>
+          <div className="mt-3">
+            <ExpenseList
+              expenses={visibleExpenses}
+              onDelete={(id) => setExpense(expense.filter((e) => e.id !== id))}
+            />
+          </div>
+        </div>
       </div>
     </>
   );
