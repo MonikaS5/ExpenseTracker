@@ -1,4 +1,11 @@
 import { categories } from "../../App";
+import { z } from "zod";
+
+z.object({
+  description: z.string().min(3).max(50),
+  amount: z.number().min(0.01).max(100_000),
+  category: z.enum(categories),
+});
 
 const ExpenseForm = () => {
   return (
@@ -29,6 +36,7 @@ const ExpenseForm = () => {
             ))}
           </select>
         </div>
+        <button className="btn btn-primary">Submit</button>
       </form>
     </div>
   );
