@@ -4,5 +4,5 @@ Expense Tracker
 
 ## Features
 
-Zod validation
-react-hook-form
+1. Zod validation
+2. react-hook-form
