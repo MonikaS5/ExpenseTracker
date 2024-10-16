@@ -21,7 +21,7 @@ const ExpenseForm = () => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit((data) => console.log(data))}>
         <div className="mb-3">
           <label htmlFor="description" className="form-label">
             Description
