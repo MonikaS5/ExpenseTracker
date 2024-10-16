@@ -17,8 +17,8 @@ const Schema = z.object({
     }),
   amount: z
     .number({ invalid_type_error: "Amount is required" })
-    .min(0.01)
-    .max(100_000),
+    .min(0.01, { message: "Amount must be at least £0.01" })
+    .max(100_000, { message: "Amount must not exceed £100,000" }),
   category: z.enum(categories, {
     errorMap: () => ({ message: "Category is required" }),
   }),
